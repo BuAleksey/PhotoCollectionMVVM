@@ -14,7 +14,7 @@ protocol PhotoCellViewModelProtocol {
 
 class PhotoCellViewModel: PhotoCellViewModelProtocol {
     var imageData: Data? {
-        NetworkManager.shared.fetchImageData(from: photo.urls.small)
+        NetworkManager.shared.fetchImageData(from: photo.urls.thumb)
     }
     private let photo: Photo
     
