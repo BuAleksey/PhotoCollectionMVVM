@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VAs-Eq-iWd">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="yfL-NN-Jfy">
+            <objects>
+                <navigationController id="VAs-Eq-iWd" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HE6-yj-HvD">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="P6H-3R-ty1" kind="relationship" relationship="rootViewController" id="Q40-ul-oB4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gip-Ka-ttb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-495" y="21"/>
+        </scene>
+        <!--MARVEL-->
+        <scene sceneID="Dzc-Zt-d6P">
+            <objects>
+                <collectionViewController id="P6H-3R-ty1" customClass="PhotosCollectionViewController" customModule="PhotoCollectionMVVM" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="j6V-L8-uUN">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="8" id="rRO-BF-kWj">
+                            <size key="itemSize" width="170" height="170"/>
+                            <size key="estimatedItemSize" width="170" height="170"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="20"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="WiV-gy-Wbo" customClass="PhotoCell" customModule="PhotoCollectionMVVM" customModuleProvider="target">
+                                <rect key="frame" x="20" y="20" width="170" height="170"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="aJ6-Bs-Nrv">
+                                    <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" adjustsImageSizeForAccessibilityContentSizeCategory="YES" id="NZb-Ep-1DZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="170" height="170"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="NZb-Ep-1DZ" secondAttribute="bottom" id="9Hf-G2-70a"/>
+                                        <constraint firstItem="NZb-Ep-1DZ" firstAttribute="top" secondItem="aJ6-Bs-Nrv" secondAttribute="top" id="KG3-Vt-yhg"/>
+                                        <constraint firstItem="NZb-Ep-1DZ" firstAttribute="leading" secondItem="aJ6-Bs-Nrv" secondAttribute="leading" id="knj-31-Wuy"/>
+                                        <constraint firstAttribute="trailing" secondItem="NZb-Ep-1DZ" secondAttribute="trailing" id="pds-15-Lht"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                                <size key="customSize" width="170" height="170"/>
+                                <connections>
+                                    <outlet property="photoImage" destination="NZb-Ep-1DZ" id="Zd6-Kv-Ahe"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="P6H-3R-ty1" id="MZ2-uW-IFI"/>
+                            <outlet property="delegate" destination="P6H-3R-ty1" id="cHG-gw-Bap"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="MARVEL" id="DGk-Cw-7gF"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QXg-QD-T8E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="251" y="20"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
