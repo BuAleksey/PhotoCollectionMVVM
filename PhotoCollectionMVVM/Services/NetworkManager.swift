@@ -31,9 +31,13 @@ class NetworkManager {
         }.resume()
     }
     
-    func fetchImageData(from url: String) -> Data? {
-        guard let url = URL(string: url) else { return nil }
-        guard let imageData = try? Data(contentsOf: url) else { return nil }
-        return imageData
+    func fetchImageData(from url: String, completion: @escaping(Data) -> Void) {
+        guard let url = URL(string: url) else { return }
+        URLSession.shared.dataTask(with: url) { data, _, _ in
+            guard let data = data else { return }
+            DispatchQueue.main.async {
+                completion(data)
+            }
+        }.resume()
     }
 }

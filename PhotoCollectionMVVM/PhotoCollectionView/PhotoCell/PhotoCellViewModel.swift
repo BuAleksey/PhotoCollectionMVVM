@@ -8,17 +8,23 @@
 import Foundation
 
 protocol PhotoCellViewModelProtocol {
-    var imageData: Data? { get }
+    var imageData: Data? { get set }
     init(photo: Photo)
+    func fetchImageData(completion: @escaping() -> Void)
 }
 
 class PhotoCellViewModel: PhotoCellViewModelProtocol {
-    var imageData: Data? {
-        NetworkManager.shared.fetchImageData(from: photo.urls.thumb)
-    }
+    var imageData: Data?
     private let photo: Photo
     
     required init(photo: Photo) {
         self.photo = photo
+    }
+    
+    func fetchImageData(completion: @escaping() -> Void) {
+        NetworkManager.shared.fetchImageData(from: photo.urls.thumb) { [weak self] data in
+            self?.imageData = data
+            completion()
+        }
     }
 }

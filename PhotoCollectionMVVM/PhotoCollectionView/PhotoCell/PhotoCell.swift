@@ -12,8 +12,10 @@ class PhotoCell: UICollectionViewCell {
     
     var viewModel: PhotoCellViewModelProtocol! {
         didSet {
-            guard let image = viewModel.imageData else { return }
-            photoImage.image = UIImage(data: image)
+            viewModel.fetchImageData { [weak self] in
+                guard let image = self?.viewModel.imageData else { return }
+                self?.photoImage.image = UIImage(data: image)
+            }
         }
     }
 }

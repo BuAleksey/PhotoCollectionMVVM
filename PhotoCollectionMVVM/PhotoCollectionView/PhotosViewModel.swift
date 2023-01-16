@@ -17,10 +17,10 @@ class PhotosViewModel: PhotosViewModelProtocol {
     private var photos: [Photo] = []
     
     func fetchData(completion: @escaping() -> Void) {
-        NetworkManager.shared.fetchData { result in
+        NetworkManager.shared.fetchData { [weak self] result in
             switch result {
             case .success(let photos):
-                self.photos = photos
+                self?.photos = photos
                 completion()
             case .failure(let error):
                 print(error.localizedDescription)
