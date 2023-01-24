@@ -8,7 +8,7 @@
 import Foundation
 
 protocol PhotoCellViewModelProtocol {
-    var imageData: Data? { get set }
+    var imageData: Data? { get }
     init(photo: Photo)
     func fetchImageData(completion: @escaping() -> Void)
 }

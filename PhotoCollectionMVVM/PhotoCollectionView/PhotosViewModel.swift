@@ -11,6 +11,7 @@ protocol PhotosViewModelProtocol {
     func fetchData(completion: @escaping() -> Void)
     func getNumbersOfItems() -> Int
     func getPhoto(at indexPath: IndexPath) -> PhotoCellViewModelProtocol
+    func getPhotoDetails(at indexPaht: IndexPath) -> PhotoDetailsViewModelProtocol
 }
 
 class PhotosViewModel: PhotosViewModelProtocol {
@@ -34,5 +35,9 @@ class PhotosViewModel: PhotosViewModelProtocol {
     
     func getPhoto(at indexPath: IndexPath) -> PhotoCellViewModelProtocol {
         PhotoCellViewModel(photo: photos[indexPath.item])
+    }
+    
+    func getPhotoDetails(at indexPaht: IndexPath) -> PhotoDetailsViewModelProtocol {
+        PhotoDetailsViewModel(photo: photos[indexPaht.item])
     }
 }
