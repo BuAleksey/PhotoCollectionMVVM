@@ -82,6 +82,7 @@
         <!--Details-->
         <scene sceneID="qbb-Tb-cvD">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WtK-Ct-LTO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="XWw-3b-r67" customClass="PhotoDetailsViewController" customModule="PhotoCollectionMVVM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O2c-sp-mRv">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
@@ -126,9 +127,8 @@
                         <outlet property="image" destination="whe-KU-0xN" id="YdW-bu-EZ4"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WtK-Ct-LTO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="990" y="20"/>
+            <point key="canvasLocation" x="1033" y="20"/>
         </scene>
     </scenes>
     <resources>

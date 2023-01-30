@@ -12,4 +12,10 @@ class PhotoDetailsViewController: UIViewController {
     @IBOutlet var authorNameLabel: UILabel!
     
     var viewModel: PhotoDetailsViewModelProtocol!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        //TODO: viewModel - nil
+    }
 }

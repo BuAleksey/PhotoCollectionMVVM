@@ -45,6 +45,7 @@ class PhotosCollectionViewController: UICollectionViewController {
 
     // MARK: UICollectionViewDelegate
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
         let photoDetailsViewModel = viewModel.getPhotoDetails(at: indexPath)
         performSegue(withIdentifier: "showDetails", sender: photoDetailsViewModel)
     }
