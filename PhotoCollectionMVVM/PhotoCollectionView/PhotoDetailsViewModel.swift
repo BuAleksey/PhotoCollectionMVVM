@@ -1,33 +1,34 @@
 //
-//  PhotoDetaolViewModel.swift
+//  PhotoDetailsViewModel.swift
 //  PhotoCollectionMVVM
 //
-//  Created by Buba on 17.01.2023.
+//  Created by Buba on 24.02.2023.
 //
 
 import Foundation
 
 protocol PhotoDetailsViewModelProtocol {
-    var name: String { get }
-    var imageData: Data? { get }
+    var nameAutor: String { get }
+    var image: Data? { get }
     init(photo: Photo)
     func fetchImageData(completion: @escaping() -> Void)
 }
 
 class PhotoDetailsViewModel: PhotoDetailsViewModelProtocol {
-    var name: String {
-        photo.user.username
+    var nameAutor: String {
+        " Autor: \(photo.user.username) "
     }
-    var imageData: Data?
-    private var photo: Photo
+    var image: Data?
+    
+    private let photo: Photo
     
     required init(photo: Photo) {
         self.photo = photo
     }
     
     func fetchImageData(completion: @escaping () -> Void) {
-        NetworkManager.shared.fetchImageData(from: photo.urls.small) { [weak self] data in
-            self?.imageData = data
+        NetworkManager.shared.fetchImageData(from: photo.urls.small) {
+            [weak self] imageData in self?.image = imageData
             completion()
         }
     }
