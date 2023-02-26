@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -26,7 +27,7 @@
             </objects>
             <point key="canvasLocation" x="-495" y="21"/>
         </scene>
-        <!--MARVEL-->
+        <!--Photo list-->
         <scene sceneID="Dzc-Zt-d6P">
             <objects>
                 <collectionViewController id="P6H-3R-ty1" customClass="PhotosCollectionViewController" customModule="PhotoCollectionMVVM" customModuleProvider="target" sceneMemberID="viewController">
@@ -72,7 +73,7 @@
                             <outlet property="delegate" destination="P6H-3R-ty1" id="cHG-gw-Bap"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="MARVEL" id="DGk-Cw-7gF"/>
+                    <navigationItem key="navigationItem" title="Photo list" id="DGk-Cw-7gF"/>
                     <connections>
                         <segue destination="uNW-NX-Kb4" kind="show" identifier="showDetails" id="sh0-tg-pMJ"/>
                     </connections>
@@ -89,7 +90,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8LH-mf-ln7">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8LH-mf-ln7">
                                 <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Autor" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKq-30-6iK">
@@ -103,11 +104,31 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GQx-4b-l57">
+                                <rect key="frame" x="343" y="123" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="2jP-dV-2dd"/>
+                                    <constraint firstAttribute="width" constant="30" id="ZFH-bn-mDU"/>
+                                </constraints>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="heart.fill" catalog="system" symbolScale="large"/>
+                                </state>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <imageReference key="image" image="heart.fill" catalog="system" symbolScale="large"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="favoriteButtonPressed" destination="uNW-NX-Kb4" eventType="touchUpInside" id="cn1-29-dKY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6mH-d6-KGn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6mH-d6-KGn" firstAttribute="trailing" secondItem="GQx-4b-l57" secondAttribute="trailing" constant="20" id="3qh-Ur-ekn"/>
                             <constraint firstItem="6mH-d6-KGn" firstAttribute="bottom" secondItem="8LH-mf-ln7" secondAttribute="bottom" id="4Vy-qM-988"/>
+                            <constraint firstItem="GQx-4b-l57" firstAttribute="top" secondItem="6mH-d6-KGn" secondAttribute="top" constant="20" id="4bF-Vr-ygf"/>
                             <constraint firstItem="6mH-d6-KGn" firstAttribute="trailing" secondItem="8LH-mf-ln7" secondAttribute="trailing" id="6sJ-9M-YNp"/>
                             <constraint firstItem="6mH-d6-KGn" firstAttribute="bottom" secondItem="MKq-30-6iK" secondAttribute="bottom" constant="40" id="DoJ-xg-ois"/>
                             <constraint firstItem="8LH-mf-ln7" firstAttribute="top" secondItem="6mH-d6-KGn" secondAttribute="top" id="del-aI-OBa"/>
@@ -118,6 +139,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="2Ld-WU-Y0O"/>
                     <connections>
+                        <outlet property="favoriteButton" destination="GQx-4b-l57" id="6F6-bb-ob0"/>
                         <outlet property="image" destination="8LH-mf-ln7" id="4gH-Ku-Yx9"/>
                         <outlet property="nameAutor" destination="MKq-30-6iK" id="nj5-Vb-Vkh"/>
                     </connections>
@@ -128,6 +150,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="heart.fill" catalog="system" width="128" height="107"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

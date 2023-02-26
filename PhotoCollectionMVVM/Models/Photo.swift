@@ -6,6 +6,7 @@
 //
 
 struct Photo: Decodable {
+    let id: String
     let urls: Urls
     let user: User
 }
